@@ -15,4 +15,4 @@ FROM alpine:3.8
 RUN mkdir /usr/local/etc
 COPY --from=builder /usr/local/bin/noip2 /usr/local/bin/noip2
 
-ENTRYPOINT /usr/local/bin/noip2 -C -u $USERNAME -p $PASSWORD -U 30 && /usr/local/bin/noip2 && while kill -0 $(pgrep noip2) 2> /dev/null; do sleep 1; done
+ENTRYPOINT /usr/local/bin/noip2 -C -u $USERNAME -p $PASSWORD -U 30 -Y && /usr/local/bin/noip2 && while kill -0 $(pgrep noip2) 2> /dev/null; do sleep 1; done
